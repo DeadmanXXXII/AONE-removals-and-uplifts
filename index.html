@@ -104,6 +104,8 @@
     display:block;
     margin-top:-4px;
   }
+  .logo img{height:54px;width:auto;display:block;}
+  @media (max-width:600px){.logo img{height:44px;}}
   nav.links{display:flex;gap:28px;align-items:center;}
   nav.links a{
     text-decoration:none;
@@ -600,11 +602,8 @@
 
 <header class="site">
   <div class="nav wrap">
-    <a href="#top" class="logo">
-      <span class="a1">A<span>ONE</span></span>
-      <span>
-        <small>Removals &amp;<br>Rubbish Uplifts</small>
-      </span>
+    <a href="#top" class="logo" aria-label="A ONE Removals &amp; Rubbish Uplifts — back to top">
+      <img src="logo.png" width="480" height="221" alt="A ONE Removals &amp; Uplifts">
     </a>
     <nav class="links">
       <a href="#services">Services</a>
