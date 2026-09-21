@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A ONE Removals &amp; Rubbish Uplifts | Fast, Reliable, Stress-Free</title>
+<meta name="description" content="A ONE Removals & Rubbish Uplifts — house moves, flat moves, rubbish and garden clearance, white goods disposal. SEPA registered, fully licensed and insured. Big enough to cope, small enough to care.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚚</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141414;
+    --ink-soft:#232323;
+    --red:#E31E24;
+    --red-dark:#B0151A;
+    --gold:#FFC72C;
+    --paper:#F6F4EF;
+    --paper-dim:#EAE6DC;
+    --steel:#7C7A74;
+    --line:rgba(20,20,20,0.12);
+    --radius:2px;
+    --max:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    letter-spacing:0.01em;
+    line-height:0.95;
+    margin:0;
+    text-transform:uppercase;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    background:var(--ink);
+    color:var(--paper-dim);
+    font-size:13px;
+  }
+  .topbar .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:8px;
+    padding-bottom:8px;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .topbar a{text-decoration:none;color:var(--paper-dim);}
+  .topbar a:hover{color:var(--gold);}
+  .topbar-links{display:flex;gap:18px;flex-wrap:wrap;}
+
+  /* ---------- Header / nav ---------- */
+  header.site{
+    background:var(--ink);
+    border-bottom:6px solid var(--red);
+    position:sticky;
+    top:0;
+    z-index:40;
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 24px;
+    gap:16px;
+  }
+  .logo{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    color:var(--paper);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .logo .a1{
+    font-family:'Anton',sans-serif;
+    font-size:30px;
+    color:var(--paper);
+    letter-spacing:0.02em;
+  }
+  .logo .a1 span{color:var(--red);}
+  .logo small{
+    font-size:11px;
+    color:var(--steel);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    display:block;
+    margin-top:-4px;
+  }
+  nav.links{display:flex;gap:28px;align-items:center;}
+  nav.links a{
+    text-decoration:none;
+    color:var(--paper-dim);
+    font-weight:600;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  nav.links a:hover{color:var(--gold);}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 22px;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+    border-radius:var(--radius);
+    border:2px solid transparent;
+    cursor:pointer;
+    transition:transform .12s ease, background-color .12s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:scale(0.98);}
+  .btn-red{background:var(--red);color:#fff;}
+  .btn-red:hover{background:var(--red-dark);}
+  .btn-gold{background:var(--gold);color:var(--ink);}
+  .btn-gold:hover{background:#e6b326;}
+  .btn-outline{background:transparent;color:var(--paper);border-color:var(--paper);}
+  .btn-outline:hover{background:var(--paper);color:var(--ink);}
+  .btn-dark-outline{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-dark-outline:hover{background:var(--ink);color:var(--paper);}
+  .btn-block{width:100%;}
+
+  .nav-actions{display:flex;gap:10px;align-items:center;}
+  .burger{
+    display:none;
+    background:none;
+    border:2px solid var(--paper-dim);
+    color:var(--paper);
+    padding:8px 10px;
+    border-radius:var(--radius);
+    cursor:pointer;
+  }
+  .mobile-links{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:var(--paper);
+    overflow:hidden;
+    padding:72px 0 0;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(115deg, transparent 0%, transparent 46%, var(--red) 46%, var(--red) 68%, transparent 68%);
+    opacity:0.9;
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:56px;
+  }
+  .eyebrow-tag{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--ink);
+    font-weight:800;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:6px 12px;
+    border-radius:var(--radius);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(40px, 6.4vw, 74px);
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+  }
+  .hero p.lede{
+    margin-top:20px;
+    max-width:46ch;
+    font-size:18px;
+    color:#D9D6CC;
+  }
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .hero-strap{
+    margin-top:38px;
+    font-family:'Anton',sans-serif;
+    font-size:15px;
+    letter-spacing:0.02em;
+    color:var(--paper);
+    text-transform:uppercase;
+  }
+  .hero-strap .cope{color:var(--paper);}
+  .hero-strap .care{color:var(--gold);}
+
+  .hero-badge-card{
+    position:relative;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:var(--radius);
+    padding:28px;
+    box-shadow:0 24px 48px rgba(0,0,0,0.35);
+    justify-self:end;
+    width:100%;
+    max-width:340px;
+  }
+  .hero-badge-card .kicker{
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--steel);
+    font-weight:700;
+  }
+  .hero-badge-card h3{
+    font-size:34px;
+    margin-top:6px;
+  }
+  .hero-badge-card .price{
+    font-family:'Anton',sans-serif;
+    font-size:56px;
+    color:var(--red);
+    line-height:1;
+    margin:10px 0 4px;
+  }
+  .hero-badge-card .price sup{font-size:26px;top:-1.2em;}
+  .hero-badge-card .subline{
+    font-weight:800;
+    color:var(--ink);
+    text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:0.03em;
+  }
+  .hero-badge-card .fine{
+    font-size:11px;
+    color:var(--steel);
+    margin-top:12px;
+  }
+  .bins-row{display:flex;gap:8px;margin-top:16px;}
+  .bin{width:26px;height:34px;border-radius:3px 3px 1px 1px;position:relative;}
+  .bin::before{content:"";position:absolute;top:-5px;left:-2px;right:-2px;height:6px;border-radius:2px;background:inherit;filter:brightness(0.85);}
+  .bin.blue{background:#2E7BC7;}
+  .bin.brown{background:#8C6A4C;}
+  .bin.green{background:#2E8B57;}
+  .bin.grey{background:#5B5F63;}
+
+  /* ---------- Section shell ---------- */
+  section{padding:76px 0;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head .tag{
+    color:var(--red);
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  .section-head h2{font-size:clamp(30px,4vw,44px);margin-top:8px;}
+  .section-head p{color:var(--steel);margin-top:14px;font-size:16px;max-width:56ch;}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--paper);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--paper);
+    padding:26px 24px;
+  }
+  .service-card .num{
+    font-family:'Anton',sans-serif;
+    font-size:13px;
+    color:var(--steel);
+  }
+  .service-card h3{
+    font-size:19px;
+    margin-top:10px;
+    text-transform:none;
+    font-family:'Inter',sans-serif;
+    font-weight:800;
+  }
+  .service-card p{
+    color:var(--steel);
+    font-size:14px;
+    margin-top:8px;
+  }
+
+  /* ---------- Trust strip ---------- */
+  .trust{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .trust-inner{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  .trust-item{border-left:2px solid var(--red);padding-left:16px;}
+  .trust-item h4{
+    font-family:'Inter',sans-serif;
+    font-weight:800;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    margin:0;
+  }
+  .trust-item p{color:#B9B6AC;font-size:13.5px;margin-top:6px;}
+
+  /* ---------- Booking ---------- */
+  .booking{
+    background:var(--paper-dim);
+  }
+  .booking-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:48px;
+    align-items:start;
+  }
+  .booking-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:24px;}
+  .booking-steps li{display:flex;gap:16px;}
+  .step-mark{
+    flex:0 0 auto;
+    width:34px;height:34px;
+    background:var(--red);
+    color:#fff;
+    font-family:'Anton',sans-serif;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    font-size:15px;
+  }
+  .booking-steps h4{margin:0 0 4px;font-size:16px;font-weight:800;}
+  .booking-steps p{margin:0;color:var(--steel);font-size:14px;}
+  .booking-panel{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+  }
+  .booking-panel h3{
+    font-family:'Inter',sans-serif;
+    font-weight:800;
+    font-size:20px;
+    text-transform:none;
+  }
+  .booking-panel p.note{color:var(--steel);font-size:14px;margin-top:8px;margin-bottom:24px;}
+  .job-chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;}
+  .job-chip{
+    border:1.5px solid var(--line);
+    background:var(--paper);
+    padding:9px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink);
+  }
+
+  /* ---------- Custom quote / quick contact ---------- */
+  .custom-quote{background:var(--paper-dim);}
+  .custom-quote-panel{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    max-width:680px;
+  }
+  .custom-quote-panel label{
+    display:block;
+    font-weight:800;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin-bottom:8px;
+  }
+  .custom-quote-panel textarea{
+    width:100%;
+    padding:14px;
+    border:1.5px solid var(--line);
+    border-radius:var(--radius);
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    resize:vertical;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  .custom-quote-panel textarea:focus{outline:3px solid var(--gold);outline-offset:1px;}
+  .custom-quote-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:18px;
+  }
+  .custom-quote-actions .btn{flex:1 1 140px;}
+  .custom-quote-panel .note{color:var(--steel);font-size:13px;margin-top:16px;margin-bottom:0;}
+
+  /* ---------- Pricing / offer ---------- */
+  .offer{background:var(--ink);color:var(--paper);}
+  .offer-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+  }
+  .offer-card{
+    background:var(--paper);
+    color:var(--ink);
+    padding:36px;
+    position:relative;
+    border-radius:var(--radius);
+  }
+  .offer-card .tag{
+    display:inline-block;
+    background:var(--red);
+    color:#fff;
+    font-size:12px;
+    font-weight:800;
+    padding:5px 10px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin-bottom:14px;
+  }
+  .offer-card .headline{font-size:42px;}
+  .offer-card .price-big{
+    font-family:'Anton',sans-serif;
+    font-size:80px;
+    color:var(--red);
+    line-height:0.9;
+    margin:14px 0;
+  }
+  .offer-card .price-big sup{font-size:34px;}
+  .offer-card .cheaper{
+    font-family:'Anton',sans-serif;
+    color:var(--ink);
+    background:var(--gold);
+    display:inline-block;
+    padding:6px 12px;
+    font-size:16px;
+  }
+  .offer-card .fine{color:var(--steel);font-size:12px;margin-top:16px;}
+  .offer-copy p{color:#D9D6CC;font-size:16px;max-width:44ch;}
+  .offer-copy ul{margin:20px 0 0;padding:0;list-style:none;}
+  .offer-copy li{
+    display:flex;gap:10px;
+    padding:10px 0;
+    border-top:1px solid rgba(255,255,255,0.12);
+    font-size:15px;
+  }
+  .offer-copy li:last-child{border-bottom:1px solid rgba(255,255,255,0.12);}
+  .check{color:var(--gold);font-weight:800;}
+
+  /* ---------- Contact / footer ---------- */
+  footer{background:var(--ink);color:var(--paper-dim);padding-top:64px;}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:48px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  footer h4{
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:14px;
+    letter-spacing:0.04em;
+    margin-bottom:16px;
+  }
+  .contact-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .contact-list a{text-decoration:none;font-size:15px;font-weight:600;}
+  .contact-list a:hover{color:var(--gold);}
+  .contact-list .label{display:block;font-size:11px;color:var(--steel);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:2px;}
+  .social-buttons{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+  .social-btn{
+    display:flex;align-items:center;gap:10px;
+    padding:10px 14px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+    color:#fff;
+  }
+  .social-btn.wa{background:#25D366;color:#0b3d1f;}
+  .social-btn.fb{background:#1877F2;}
+  .social-btn.mail{background:var(--red);}
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 0;
+    font-size:12.5px;
+    color:var(--steel);
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .footer-strap{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:0.04em;
+    color:var(--paper-dim);
+  }
+  .footer-strap .gold{color:var(--gold);}
+
+  /* ---------- Sticky mobile call bar ---------- */
+  .mobile-callbar{display:none;}
+
+  /* ---------- Toast ---------- */
+  .toast{
+    position:fixed;
+    left:50%;
+    bottom:24px;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--ink);
+    color:var(--paper);
+    padding:14px 20px;
+    border-left:4px solid var(--gold);
+    border-radius:var(--radius);
+    font-size:14px;
+    max-width:min(420px, calc(100% - 32px));
+    box-shadow:0 12px 30px rgba(0,0,0,0.35);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+    z-index:100;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-badge-card{justify-self:start;max-width:100%;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .trust-inner{grid-template-columns:repeat(2,1fr);row-gap:24px;}
+    .booking-grid{grid-template-columns:1fr;}
+    .offer-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;gap:32px;}
+    nav.links{display:none;}
+    .burger{display:inline-flex;align-items:center;}
+    .nav-actions .btn-outline{display:none;}
+  }
+  @media (max-width:900px){
+    body{padding-bottom:70px;}
+    .mobile-callbar{
+      display:flex;
+      position:fixed;
+      bottom:0;left:0;right:0;
+      background:var(--ink);
+      border-top:3px solid var(--red);
+      z-index:50;
+      padding:10px 14px;
+      gap:10px;
+    }
+    .mobile-callbar .btn{flex:1;padding:12px 10px;font-size:14px;}
+  }
+  @media (max-width:600px){
+    .service-grid{grid-template-columns:1fr;}
+    .offer-card .headline{font-size:32px;}
+    .offer-card .price-big{font-size:60px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div>SEPA registered &middot; Fully licensed &amp; insured</div>
+    <div class="topbar-links">
+      <a href="tel:07496003634">07496 003 634</a>
+      <a href="mailto:A1removalsuplifts@yahoo.com">A1removalsuplifts@yahoo.com</a>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="nav wrap">
+    <a href="#top" class="logo">
+      <span class="a1">A<span>ONE</span></span>
+      <span>
+        <small>Removals &amp;<br>Rubbish Uplifts</small>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#offer">4 Bins Offer</a>
+      <a href="#book">Book a Job</a>
+      <a href="#custom-quote">Custom Quote</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-outline" href="tel:07496003634">Call Now</a>
+      <a class="btn btn-red" href="#book">Book Now</a>
+      <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-links wrap" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#offer">4 Bins Offer</a>
+    <a href="#book">Book a Job</a>
+    <a href="#custom-quote">Custom Quote</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top:0;">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow-tag">Your local moving &amp; clearance experts</span>
+        <h1>We do the<br>heavy lifting,<br><em>you relax.</em></h1>
+        <p class="lede">House moves, flat moves, rubbish and garden clearance, office clearouts and white goods disposal — fast, fully insured, and priced fairly. No job too big or small.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="#book">Book a job</a>
+          <a class="btn btn-outline" href="https://wa.me/447496003634?text=Hi%20A%20ONE%2C%20I%27d%20like%20a%20quote%20for..." target="_blank" rel="noopener">WhatsApp us</a>
+        </div>
+        <p class="hero-strap"><span class="cope">Big enough to cope,</span> <span class="care">small enough to care.</span></p>
+      </div>
+
+      <div class="hero-badge-card">
+        <div class="kicker">Limited offer</div>
+        <h3>4 bins emptied for</h3>
+        <div class="price">£45<sup>*</sup></div>
+        <div class="bins-row" aria-hidden="true">
+          <div class="bin blue"></div><div class="bin brown"></div><div class="bin green"></div><div class="bin grey"></div>
+        </div>
+        <p class="subline">Cheaper than a skip</p>
+        <p class="fine">*Terms &amp; conditions apply. See offer details below.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag">What we do</span>
+        <h2>One van, every kind of job.</h2>
+        <p>From a single sofa to a full house move, our team handles it with the same care — fully licensed, fully insured, environmentally responsible disposal every time.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card"><div class="num">01</div><h3>Removal services</h3><p>Full home and flat removals, loaded and driven with care.</p></div>
+        <div class="service-card"><div class="num">02</div><h3>Rubbish clearance</h3><p>Household waste cleared quickly and responsibly.</p></div>
+        <div class="service-card"><div class="num">03</div><h3>House moves</h3><p>Big moves handled start to finish, no stress on your end.</p></div>
+        <div class="service-card"><div class="num">04</div><h3>Garden clearance</h3><p>Overgrown gardens, green waste and off-cuts taken away.</p></div>
+        <div class="service-card"><div class="num">05</div><h3>Furniture disposal</h3><p>Sofas, beds, tables and more — uplifted and disposed of properly.</p></div>
+        <div class="service-card"><div class="num">06</div><h3>Flat moves</h3><p>Tight stairwells and small lifts are no problem for our team.</p></div>
+        <div class="service-card"><div class="num">07</div><h3>Office clearance</h3><p>Desks, filing cabinets and office fit-outs cleared efficiently.</p></div>
+        <div class="service-card"><div class="num">08</div><h3>Store pick-ups</h3><p>IKEA, B&amp;Q and other store collections, delivered to your door.</p></div>
+        <div class="service-card"><div class="num">09</div><h3>White goods</h3><p>Washing machines, fridges, cookers and dishwashers removed safely.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="wrap trust-inner">
+      <div class="trust-item"><h4>Fast &amp; reliable</h4><p>Turn jobs around quickly without cutting corners.</p></div>
+      <div class="trust-item"><h4>Competitive prices</h4><p>Fair quotes, no hidden extras.</p></div>
+      <div class="trust-item"><h4>Helpful staff</h4><p>Friendly team who treat your home like their own.</p></div>
+      <div class="trust-item"><h4>Fully insured</h4><p>SEPA registered, licensed and insured for peace of mind.</p></div>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section id="offer" class="offer">
+    <div class="wrap offer-grid">
+      <div class="offer-card">
+        <span class="tag">4 bins offer</span>
+        <div class="headline">Bins emptied,<br>sorted.</div>
+        <div class="price-big">£45<sup>*</sup></div>
+        <span class="cheaper">Cheaper than a skip!</span>
+        <p class="fine">*Terms and conditions apply. Get in touch for full details and to check availability in your area.</p>
+      </div>
+      <div class="offer-copy">
+        <span class="tag" style="background:var(--gold);color:var(--ink);">Why choose A ONE</span>
+        <p style="margin-top:14px;">We take single items or full loads, and we're registered and insured to do it properly — not just cheaply.</p>
+        <ul>
+          <li><span class="check">✓</span> SEPA registered</li>
+          <li><span class="check">✓</span> Fully licensed</li>
+          <li><span class="check">✓</span> Fully insured</li>
+          <li><span class="check">✓</span> Environmentally responsible disposal</li>
+          <li><span class="check">✓</span> Single items or full loads welcome</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="book" class="booking">
+    <div class="wrap booking-grid">
+      <div>
+        <span class="tag">Book a job</span>
+        <h2 style="font-size:clamp(28px,3.6vw,38px);margin-top:8px;">How booking works</h2>
+        <ul class="booking-steps" style="margin-top:28px;">
+          <li>
+            <div class="step-mark">1</div>
+            <div><h4>Pick your job type</h4><p>Tell us what you need — a house move, a clearance, a bin uplift — and roughly how big the job is.</p></div>
+          </li>
+          <li>
+            <div class="step-mark">2</div>
+            <div><h4>Choose an available slot</h4><p>Our booking calendar only shows times we're actually free, based on how long each job type takes — so there's never a double-booking.</p></div>
+          </li>
+          <li>
+            <div class="step-mark">3</div>
+            <div><h4>We confirm the job</h4><p>You'll get a confirmation, and the job goes straight into our schedule for the full length of time it needs.</p></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="booking-panel">
+        <h3>Book your slot</h3>
+        <p class="note">Booking opens our live availability calendar in a new tab — every slot shown is already sized to the job length, so there's no clash with another booking.</p>
+
+        <div class="job-chip-row" aria-hidden="true">
+          <span class="job-chip">House move</span>
+          <span class="job-chip">Flat move</span>
+          <span class="job-chip">Rubbish clearance</span>
+          <span class="job-chip">Garden clearance</span>
+          <span class="job-chip">Office clearance</span>
+          <span class="job-chip">White goods</span>
+          <span class="job-chip">Bin uplift</span>
+          <span class="job-chip">Something else?</span>
+        </div>
+
+        <!--
+          BOOKING LINK — REPLACE ME
+          This points to a Google Calendar "Appointment schedule".
+          It writes bookings straight into the A ONE calendar (not the
+          customer's), blocks the full duration of each job type, and
+          stops anyone booking an already-taken slot automatically.
+          Swap the href below for the real booking page link once it's
+          created — no other code changes needed.
+        -->
+        <a
+          id="bookingLink"
+          class="btn btn-red btn-block"
+          href="https://calendar.app.google/REPLACE-WITH-YOUR-BOOKING-LINK"
+          target="_blank"
+          rel="noopener"
+        >Check availability &amp; book</a>
+
+        <p class="note" style="margin-top:16px;margin-bottom:0;">Prefer to talk it through first?
+          <a href="tel:07496003634" style="color:var(--red);font-weight:700;">Call 07496 003 634</a>
+          or
+          <a href="https://wa.me/447496003634" target="_blank" rel="noopener" style="color:var(--red);font-weight:700;">message us on WhatsApp</a>.
+        </p>
+        <p class="note" style="margin-top:8px;margin-bottom:0;">Job not listed above?
+          <a href="#custom-quote" style="color:var(--red);font-weight:700;">Get a custom quote</a> instead.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM QUOTE -->
+  <section id="custom-quote" class="custom-quote">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag">Not on the list?</span>
+        <h2>Get a custom quote</h2>
+        <p>No job's too odd or too specific — tell us what you need done below, then send it straight to us by text, WhatsApp, email or Facebook. Whichever's easiest for you.</p>
+      </div>
+
+      <div class="custom-quote-panel">
+        <label for="customJobDetails">Describe your job</label>
+        <textarea id="customJobDetails" rows="4" placeholder="e.g. Clearing a lock-up garage, plus one old shed to uplift, access via a back lane..."></textarea>
+
+        <div class="custom-quote-actions">
+          <a id="customTextLink" class="btn btn-red" href="sms:07496003634">Text us</a>
+          <a id="customWaLink" class="btn btn-gold" href="https://wa.me/447496003634" target="_blank" rel="noopener">WhatsApp</a>
+          <a id="customEmailLink" class="btn btn-dark-outline" href="mailto:A1removalsuplifts@yahoo.com">Email us</a>
+          <!-- REPLACE with your real Facebook page or Messenger (m.me) URL -->
+          <a id="customFbLink" class="btn btn-outline" style="border-color:var(--ink);color:var(--ink);" href="#" target="_blank" rel="noopener">Facebook</a>
+        </div>
+
+        <p class="note">Type your job details above first and we'll drop them straight into the text, WhatsApp or email message for you. Facebook Messenger doesn't support pre-filled messages, so just paste your details in once it opens.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap footer-grid">
+    <div>
+      <h4>A ONE Removals &amp; Rubbish Uplifts</h4>
+      <p style="max-width:34ch;color:#B9B6AC;font-size:14.5px;">Your local, reliable moving &amp; clearance experts. Fast, affordable, professional.</p>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <ul class="contact-list">
+        <li><span class="label">Call or text</span><a href="tel:07496003634">07496 003 634</a></li>
+        <li><span class="label">Email</span><a href="mailto:A1removalsuplifts@yahoo.com">A1removalsuplifts@yahoo.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Find us online</h4>
+      <div class="social-buttons">
+        <a class="social-btn wa" href="https://wa.me/447496003634" target="_blank" rel="noopener">WhatsApp: 07496 003 634</a>
+        <!-- REPLACE with your real Facebook page URL -->
+        <a class="social-btn fb" href="#" target="_blank" rel="noopener">Facebook: A One Removals &amp; Rubbish Uplifts</a>
+        <a class="social-btn mail" href="mailto:A1removalsuplifts@yahoo.com">Email us</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span class="footer-strap">Fast &middot; <span class="gold">Affordable</span> &middot; Professional</span>
+    <span>&copy; <span id="year"></span> A ONE Removals &amp; Rubbish Uplifts. All rights reserved.</span>
+  </div>
+</footer>
+
+<div class="mobile-callbar">
+  <a class="btn btn-outline" style="border-color:var(--paper);color:var(--paper);" href="tel:07496003634">Call</a>
+  <a class="btn btn-gold" href="#book">Book Now</a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var burger = document.getElementById('burgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = mobileMenu.style.display === 'flex';
+    mobileMenu.style.display = open ? 'none' : 'flex';
+    mobileMenu.style.flexDirection = 'column';
+    mobileMenu.style.gap = '14px';
+    mobileMenu.style.padding = open ? '0 24px' : '4px 24px 18px';
+    burger.setAttribute('aria-expanded', String(!open));
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mobileMenu.style.display = 'none';
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Custom job box — build one message and push it into text/WhatsApp/email links.
+  var customDetails = document.getElementById('customJobDetails');
+  var customTextLink = document.getElementById('customTextLink');
+  var customWaLink = document.getElementById('customWaLink');
+  var customEmailLink = document.getElementById('customEmailLink');
+
+  function updateCustomLinks() {
+    var details = customDetails.value.trim();
+    var msg = details
+      ? "Hi A ONE, I'd like a quote for a custom job: " + details
+      : "Hi A ONE, I'd like a quote for a custom job.";
+
+    // "?&body=" works on both iOS and Android SMS apps.
+    customTextLink.href = "sms:07496003634?&body=" + encodeURIComponent(msg);
+    customWaLink.href = "https://wa.me/447496003634?text=" + encodeURIComponent(msg);
+    customEmailLink.href = "mailto:A1removalsuplifts@yahoo.com?subject=" +
+      encodeURIComponent("Custom job enquiry") + "&body=" + encodeURIComponent(msg);
+  }
+  customDetails.addEventListener('input', updateCustomLinks);
+  updateCustomLinks();
+
+  // Nudge if the Facebook link on the custom quote panel hasn't been set yet.
+  document.getElementById('customFbLink').addEventListener('click', function (e) {
+    if (this.getAttribute('href') === '#') {
+      e.preventDefault();
+      var t = document.getElementById('toast');
+      t.textContent = 'Facebook link not set up yet — add your page/Messenger URL in the code.';
+      t.classList.add('show');
+      setTimeout(function () { t.classList.remove('show'); }, 4000);
+    }
+  });
+
+  // Small nudge if the booking link hasn't been swapped in yet.
+  document.getElementById('bookingLink').addEventListener('click', function(e){
+    if (this.getAttribute('href').includes('REPLACE-WITH-YOUR-BOOKING-LINK')) {
+      e.preventDefault();
+      var t = document.getElementById('toast');
+      t.textContent = 'Booking calendar link not set up yet — add your Google Calendar appointment link in the code.';
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 4000);
+    }
+  });
+</script>
+
+</body>
+</html>
