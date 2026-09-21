@@ -593,7 +593,10 @@
 
 <div class="topbar">
   <div class="wrap">
-    <div>SEPA registered &middot; Fully licensed &amp; insured</div>   
+    <div>SEPA registered &middot; Fully licensed &amp; insured</div>
+    <div class="topbar-links">
+      <a href="tel:07496003634">07496 003 634</a>
+      <a href="mailto:A1removalsuplifts@yahoo.com">A1removalsuplifts@yahoo.com</a>
     </div>
   </div>
 </div>
@@ -736,16 +739,39 @@
         <h3>Book your slot</h3>
         <p class="note">Booking opens our live availability calendar in a new tab — every slot shown is already sized to the job length, so there's no clash with another booking.</p>
 
-        <div class="job-chip-row" aria-hidden="true">
-          <span class="job-chip">House move</span>
-          <span class="job-chip">Flat move</span>
-          <span class="job-chip">Rubbish clearance</span>
-          <span class="job-chip">Garden clearance</span>
-          <span class="job-chip">Office clearance</span>
-          <span class="job-chip">White goods</span>
-          <span class="job-chip">Bin uplift</span>
-          <span class="job-chip">Something else?</span>
-        </div>
+        <!-- JOB BUTTONS: only jobs with a link are shown. Leave url:"" to hide one. -->
+<div class="job-chip-row" id="jobButtons"></div>
+<style>
+  a.job-chip{text-decoration:none;cursor:pointer;transition:border-color .15s,background .15s;}
+  a.job-chip:hover{border-color:var(--red);background:#fff;}
+  a.job-chip small{color:var(--steel);font-weight:500;margin-left:4px;}
+</style>
+<script>
+  (function () {
+    var JOBS = [
+      { label: "Full removal",         time: "3 hrs",  url: "https://cal.com/aone-removals-and-uplifts/full-removal" },
+      { label: "Items uplift",         time: "45 min", url: "https://cal.com/aone-removals-and-uplifts/items-uplift" },
+      { label: "Rubbish & clearance",  time: "90 min", url: "https://cal.com/aone-removals-and-uplifts/rubbish" },
+      { label: "Bins",                 time: "30 min", url: "https://cal.com/aone-removals-and-uplifts/15min" },
+      { label: "Small job",            time: "1 hr",   url: "https://cal.com/aone-removals-and-uplifts/30min" }
+    ];
+    var box = document.getElementById('jobButtons');
+    JOBS.forEach(function (j) {
+      if (!j.url) return;                       // no link = no button
+      var a = document.createElement('a');
+      a.className = 'job-chip';
+      a.href = j.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = j.label;
+      var s = document.createElement('small');
+      s.textContent = j.time;
+      a.appendChild(s);
+      box.appendChild(a);
+    });
+    if (!box.children.length) box.style.display = 'none';
+  })();
+</script>
 
         <!--
           BOOKING LINK
@@ -757,7 +783,7 @@
         <a
           id="bookingLink"
           class="btn btn-red btn-block"
-          href="https://cal.com/aone-removals-and-uplifts"
+          href="https://cal.com/v00d00"
           target="_blank"
           rel="noopener"
         >Check availability &amp; book</a>
