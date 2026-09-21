@@ -751,18 +751,16 @@
         </div>
 
         <!--
-          BOOKING LINK — REPLACE ME
-          This points to a Google Calendar "Appointment schedule".
-          It writes bookings straight into the A ONE calendar (not the
-          customer's), blocks the full duration of each job type, and
-          stops anyone booking an already-taken slot automatically.
-          Swap the href below for the real booking page link once it's
-          created — no other code changes needed.
+          BOOKING LINK
+          This points to the Cal.com booking page (cal.com/v00d00),
+          which is connected to the A ONE Google Calendar.
+          Bookings are written into the A ONE calendar, block the full
+          duration of each job type, and stop double bookings.
         -->
         <a
           id="bookingLink"
           class="btn btn-red btn-block"
-          href="https://calendar.app.google/REPLACE-WITH-YOUR-BOOKING-LINK"
+          href="https://cal.com/v00d00"
           target="_blank"
           rel="noopener"
         >Check availability &amp; book</a>
@@ -797,7 +795,7 @@
           <a id="customWaLink" class="btn btn-gold" href="https://wa.me/447496003634" target="_blank" rel="noopener">WhatsApp</a>
           <a id="customEmailLink" class="btn btn-dark-outline" href="mailto:A1removalsuplifts@yahoo.com">Email us</a>
           <!-- REPLACE with your real Facebook page or Messenger (m.me) URL -->
-          <a id="customFbLink" class="btn btn-outline" style="border-color:var(--ink);color:var(--ink);" href="#" target="_blank" rel="noopener">Facebook</a>
+          <a id="customFbLink" class="btn btn-outline" style="border-color:var(--ink);color:var(--ink);" href="https://www.facebook.com/share/1Bt4W3KDRp/" target="_blank" rel="noopener">Facebook</a>
         </div>
 
         <p class="note">Type your job details above first and we'll drop them straight into the text, WhatsApp or email message for you. Facebook Messenger doesn't support pre-filled messages, so just paste your details in once it opens.</p>
@@ -825,7 +823,7 @@
       <div class="social-buttons">
         <a class="social-btn wa" href="https://wa.me/447496003634" target="_blank" rel="noopener">WhatsApp: 07496 003 634</a>
         <!-- REPLACE with your real Facebook page URL -->
-        <a class="social-btn fb" href="#" target="_blank" rel="noopener">Facebook: A One Removals &amp; Rubbish Uplifts</a>
+        <a class="social-btn fb" href="https://www.facebook.com/share/1Bt4W3KDRp/" target="_blank" rel="noopener">Facebook: A One Removals &amp; Rubbish Uplifts</a>
         <a class="social-btn mail" href="mailto:A1removalsuplifts@yahoo.com">Email us</a>
       </div>
     </div>
@@ -897,7 +895,7 @@
 
   // Small nudge if the booking link hasn't been swapped in yet.
   document.getElementById('bookingLink').addEventListener('click', function(e){
-    if (this.getAttribute('href').includes('REPLACE-WITH-YOUR-BOOKING-LINK')) {
+    if (this.getAttribute('href').includes('REPLACE-WITH')) {
       e.preventDefault();
       var t = document.getElementById('toast');
       t.textContent = 'Booking calendar link not set up yet — add your Google Calendar appointment link in the code.';
